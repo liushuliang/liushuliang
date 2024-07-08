@@ -92,11 +92,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:liushuliang/liushuliang.github.io.git
+  repo: https://github.com/liushuliang/liushuliang.github.io.git
   branch: main
