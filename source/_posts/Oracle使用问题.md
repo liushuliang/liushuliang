@@ -2,7 +2,7 @@
 title: Oracle使用问题
 date: 2024-07-05 09:54:20
 tags: Oracle
-categories: work
+categories: 工作
 ---
 # Oracle——记一次使用问题
 
