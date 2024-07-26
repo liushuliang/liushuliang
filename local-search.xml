@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>IDEA远程DEBUG调试</title>
+    <link href="/2024/07/26/IDEA%E8%BF%9C%E7%A8%8BDEBUG%E8%B0%83%E8%AF%95/"/>
+    <url>/2024/07/26/IDEA%E8%BF%9C%E7%A8%8BDEBUG%E8%B0%83%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="在IDEA中配置"><a href="#在IDEA中配置" class="headerlink" title="在IDEA中配置"></a>在IDEA中配置</h2><p><img src="/../images/idea%E4%B8%ADdebug%E9%85%8D%E7%BD%AE.png"></p><h2 id="修改启动脚本"><a href="#修改启动脚本" class="headerlink" title="修改启动脚本"></a>修改启动脚本</h2><p>使用第一步得到的脚本：-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;5005<br>改造启动脚本命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java \<br>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50055 \<br>-jar remote-debug-0.0.1-SNAPSHOT.jar &amp;<br></code></pre></td></tr></table></figure><p>注意在windows中用 ^ 来进行换行</p><h2 id="可以开始调试了"><a href="#可以开始调试了" class="headerlink" title="可以开始调试了"></a>可以开始调试了</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java常用工具类代码</title>
     <link href="/2024/07/23/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BB%A3%E7%A0%81/"/>
     <url>/2024/07/23/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BB%A3%E7%A0%81/</url>
