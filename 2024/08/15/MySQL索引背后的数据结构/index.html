@@ -16,23 +16,26 @@
   <meta name="author" content="刘公子">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在IDEA中配置 修改启动脚本使用第一步得到的脚本：-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;5005改造启动脚本命令： 123nohup java \-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,addr">
+    <meta name="description" content="树的节点的度是指节点的子树个数；树的度指其中节点的度最大值。 B树中的M阶表示一个节点最多可以拥有的子节点数。  B-Tree树的度为m，高度为h。 $$非叶节点最少有\lceil m&#x2F;2 \rceil个子节点$$ 每个非叶子节点有n-1个关键字（key），有n的指针，其中m&lt;&#x3D;n&lt;&#x3D;2m  我们假设现在有一棵深度为1的5阶B树：  再添加一个节点可能存在两种情况：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IDEA远程DEBUG调试">
-<meta property="og:url" content="http://liushuliang.github.io/2024/07/26/IDEA%E8%BF%9C%E7%A8%8BDEBUG%E8%B0%83%E8%AF%95/index.html">
+<meta property="og:title" content="MySQL索引背后的数据结构">
+<meta property="og:url" content="http://liushuliang.github.io/2024/08/15/MySQL%E7%B4%A2%E5%BC%95%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="建安百科大全">
-<meta property="og:description" content="在IDEA中配置 修改启动脚本使用第一步得到的脚本：-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;5005改造启动脚本命令： 123nohup java \-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,addr">
+<meta property="og:description" content="树的节点的度是指节点的子树个数；树的度指其中节点的度最大值。 B树中的M阶表示一个节点最多可以拥有的子节点数。  B-Tree树的度为m，高度为h。 $$非叶节点最少有\lceil m&#x2F;2 \rceil个子节点$$ 每个非叶子节点有n-1个关键字（key），有n的指针，其中m&lt;&#x3D;n&lt;&#x3D;2m  我们假设现在有一棵深度为1的5阶B树：  再添加一个节点可能存在两种情况：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://liushuliang.github.io/images/idea%E4%B8%ADdebug%E9%85%8D%E7%BD%AE.png">
-<meta property="article:published_time" content="2024-07-26T01:40:03.000Z">
-<meta property="article:modified_time" content="2024-07-26T01:47:52.072Z">
+<meta property="og:image" content="http://liushuliang.github.io/images/0ae34d1ca494b7ac044d3bdfca0128bc-1723692250362-6.jpeg">
+<meta property="og:image" content="http://liushuliang.github.io/2024/08/15/images/9d717e315db3f2652b0607fc084ae59e.jpeg">
+<meta property="og:image" content="http://liushuliang.github.io/2024/08/15/images/545551dd984c932d2f496fc64215b980.jpeg">
+<meta property="article:published_time" content="2024-08-15T02:51:14.000Z">
+<meta property="article:modified_time" content="2024-08-15T09:00:11.334Z">
 <meta property="article:author" content="刘公子">
+<meta property="article:tag" content="MySQL数据库">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://liushuliang.github.io/images/idea%E4%B8%ADdebug%E9%85%8D%E7%BD%AE.png">
+<meta name="twitter:image" content="http://liushuliang.github.io/images/0ae34d1ca494b7ac044d3bdfca0128bc-1723692250362-6.jpeg">
   
   
   
-  <title>IDEA远程DEBUG调试 - 建安百科大全</title>
+  <title>MySQL索引背后的数据结构 - 建安百科大全</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="IDEA远程DEBUG调试"></span>
+            <span id="subtitle" data-typed-text="MySQL索引背后的数据结构"></span>
           
         </div>
 
@@ -209,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-26 09:40" pubdate>
-          2024年7月26日 上午
+        <time datetime="2024-08-15 10:51" pubdate>
+          2024年8月15日 上午
         </time>
       </span>
     
@@ -221,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          81 字
+          348 字
         
       </span>
     
@@ -232,7 +235,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -269,16 +272,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">IDEA远程DEBUG调试</h1>
+            <h1 id="seo-header">MySQL索引背后的数据结构</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="在IDEA中配置"><a href="#在IDEA中配置" class="headerlink" title="在IDEA中配置"></a>在IDEA中配置</h2><p><img src="/../images/idea%E4%B8%ADdebug%E9%85%8D%E7%BD%AE.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="修改启动脚本"><a href="#修改启动脚本" class="headerlink" title="修改启动脚本"></a>修改启动脚本</h2><p>使用第一步得到的脚本：-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;5005<br>改造启动脚本命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java \<br>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50055 \<br>-jar remote-debug-0.0.1-SNAPSHOT.jar &amp;<br></code></pre></td></tr></table></figure>
-<p>注意在windows中用 ^ 来进行换行</p>
-<h2 id="可以开始调试了"><a href="#可以开始调试了" class="headerlink" title="可以开始调试了"></a>可以开始调试了</h2>
+                <blockquote>
+<p>树的节点的度是指节点的子树个数；树的度指其中节点的度最大值。</p>
+<p>B树中的M阶表示一个节点最多可以拥有的子节点数。</p>
+</blockquote>
+<h2 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h2><p>树的度为m，高度为h。</p>
+<p>$$<br>非叶节点最少有\lceil m&#x2F;2 \rceil个子节点<br>$$</p>
+<p>每个非叶子节点有n-1个关键字（key），有n的指针，其中<code>m&lt;=n&lt;=2m</code></p>
+<blockquote>
+<p>我们假设现在有一棵深度为1的5阶B树：</p>
+<p><img src="/../images/0ae34d1ca494b7ac044d3bdfca0128bc-1723692250362-6.jpeg" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>再添加一个节点可能存在两种情况：</p>
+<center class="half">
+    <img src="./../images/9d717e315db3f2652b0607fc084ae59e.jpeg" srcset="/img/loading.gif" lazyload width="200"/><img src="./../images/545551dd984c932d2f496fc64215b980.jpeg" srcset="/img/loading.gif" lazyload width="200"/>
+</center>
+
+<p>如果不对B树非叶子节点加以限制，那么这个树的节点和深度就会迅速膨胀。</p>
+<p>由于B树是针对外存储器设计的多路查找结构，而一次外存储器IO操作的时间代价要比主存储器读写高出上万倍。因此B树的层数每减少一层、结点数量每减少一个，就是在减少一次外存储器的IO操作。所以说此种限制是为了最大限度的减少查找路径的长度，提高查找效率。</p>
+</blockquote>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>非叶子节点不保存数据，只保存关键字用做索引，所有数据都保存在叶子节点中。</p>
+<p>所有叶子节点通过指针链相连，且叶子节点本身按关键字的大小从小到大顺序排列。</p>
+
                 
               </div>
             
@@ -286,6 +305,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#MySQL数据库</a>
+      
+    </div>
   
 </div>
 
@@ -295,8 +321,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>IDEA远程DEBUG调试</div>
-      <div>http://liushuliang.github.io/2024/07/26/IDEA远程DEBUG调试/</div>
+      <div>MySQL索引背后的数据结构</div>
+      <div>http://liushuliang.github.io/2024/08/15/MySQL索引背后的数据结构/</div>
     </div>
     <div class="license-meta">
       
@@ -308,7 +334,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月26日</div>
+          <div>2024年8月15日</div>
         </div>
       
       
@@ -340,9 +366,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/15/MySQL%E7%B4%A2%E5%BC%95%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="MySQL索引背后的数据结构">
+                      <a href="/2024/09/26/Windows%E5%91%BD%E4%BB%A4%EF%BC%9Atype/" title="Windows命令：type">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MySQL索引背后的数据结构</span>
+                        <span class="hidden-mobile">Windows命令：type</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -350,8 +376,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/23/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BB%A3%E7%A0%81/" title="Java常用工具类代码">
-                        <span class="hidden-mobile">Java常用工具类代码</span>
+                      <a href="/2024/07/26/IDEA%E8%BF%9C%E7%A8%8BDEBUG%E8%B0%83%E8%AF%95/" title="IDEA远程DEBUG调试">
+                        <span class="hidden-mobile">IDEA远程DEBUG调试</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
