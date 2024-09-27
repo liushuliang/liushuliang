@@ -11,6 +11,12 @@
     <content type="html"><![CDATA[<h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><p>type命令显示文本文件的内容，类似Linux的<code>cat</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">type</span> [drive:][path]filename<br></code></pre></td></tr></table></figure><h2 id="显示内容"><a href="#显示内容" class="headerlink" title="显示内容"></a>显示内容</h2><p>主要用于显示<code>ASCII</code>编码文件，其他编码会乱的。</p><h2 id="文件拼接"><a href="#文件拼接" class="headerlink" title="文件拼接"></a>文件拼接</h2><p><code>type *.sql &gt;&gt; a.sql</code></p>]]></content>
     
     
+    <categories>
+      
+      <category>工具技巧</category>
+      
+    </categories>
+    
     
   </entry>
   
@@ -24,12 +30,12 @@
     <content type="html"><![CDATA[<blockquote><p>树的节点的度是指节点的子树个数；树的度指其中节点的度最大值。</p><p>B树中的M阶表示一个节点最多可以拥有的子节点数。</p></blockquote><h2 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h2><p>树的度为m，高度为h。</p><p>$$<br>非叶节点最少有\lceil m&#x2F;2 \rceil个子节点<br>$$</p><p>每个非叶子节点有n-1个关键字（key），有n的指针，其中<code>m&lt;=n&lt;=2m</code></p><blockquote><p>我们假设现在有一棵深度为1的5阶B树：</p><p><img src="/../images/0ae34d1ca494b7ac044d3bdfca0128bc-1723692250362-6.jpeg" alt="在这里插入图片描述"></p><p>再添加一个节点可能存在两种情况：</p><center class="half">    <img src="./../images/9d717e315db3f2652b0607fc084ae59e.jpeg" width="200"/><img src="./../images/545551dd984c932d2f496fc64215b980.jpeg" width="200"/></center><p>如果不对B树非叶子节点加以限制，那么这个树的节点和深度就会迅速膨胀。</p><p>由于B树是针对外存储器设计的多路查找结构，而一次外存储器IO操作的时间代价要比主存储器读写高出上万倍。因此B树的层数每减少一层、结点数量每减少一个，就是在减少一次外存储器的IO操作。所以说此种限制是为了最大限度的减少查找路径的长度，提高查找效率。</p></blockquote><h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>非叶子节点不保存数据，只保存关键字用做索引，所有数据都保存在叶子节点中。</p><p>所有叶子节点通过指针链相连，且叶子节点本身按关键字的大小从小到大顺序排列。</p>]]></content>
     
     
+    <categories>
+      
+      <category>数据库</category>
+      
+    </categories>
     
-    <tags>
-      
-      <tag>MySQL数据库</tag>
-      
-    </tags>
     
   </entry>
   
@@ -42,6 +48,12 @@
     
     <content type="html"><![CDATA[<h2 id="在IDEA中配置"><a href="#在IDEA中配置" class="headerlink" title="在IDEA中配置"></a>在IDEA中配置</h2><p><img src="/../images/idea%E4%B8%ADdebug%E9%85%8D%E7%BD%AE.png"></p><h2 id="修改启动脚本"><a href="#修改启动脚本" class="headerlink" title="修改启动脚本"></a>修改启动脚本</h2><p>使用第一步得到的脚本：-agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;5005<br>改造启动脚本命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java \<br>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50055 \<br>-jar remote-debug-0.0.1-SNAPSHOT.jar &amp;<br></code></pre></td></tr></table></figure><p>注意在windows中用 ^ 来进行换行</p><h2 id="可以开始调试了"><a href="#可以开始调试了" class="headerlink" title="可以开始调试了"></a>可以开始调试了</h2>]]></content>
     
+    
+    <categories>
+      
+      <category>工具技巧</category>
+      
+    </categories>
     
     
   </entry>
@@ -56,12 +68,12 @@
     <content type="html"><![CDATA[<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="ObjectUtil-isEmpty"><a href="#ObjectUtil-isEmpty" class="headerlink" title="ObjectUtil.isEmpty()"></a><code>ObjectUtil.isEmpty()</code></h3><p>比较笼统的判断是否为空，不属于下面类型的仅仅判断是否为null</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">(Object obj)</span> &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == obj) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> CharSequence) &#123;<br>        <span class="hljs-keyword">return</span> StrUtil.isEmpty((CharSequence) obj);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Map) &#123;<br>        <span class="hljs-keyword">return</span> MapUtil.isEmpty((Map) obj);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Iterable) &#123;<br>        <span class="hljs-keyword">return</span> IterUtil.isEmpty((Iterable) obj);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> Iterator) &#123;<br>        <span class="hljs-keyword">return</span> IterUtil.isEmpty((Iterator) obj);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ArrayUtil.isArray(obj)) &#123;<br>        <span class="hljs-keyword">return</span> ArrayUtil.isEmpty(obj);<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="Optional-ofNullable-map-orElse"><a href="#Optional-ofNullable-map-orElse" class="headerlink" title="Optional.ofNullable().map().orElse()"></a><code>Optional.ofNullable().map().orElse()</code></h3><p>v指代是gms这个列表</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;AllErgenInfoResp&gt; gms = wsAdpterService.getPatientGmInfo(hospitalNumber);<br>                patientTagVO.setIsGm(<br>                        Optional.ofNullable(gms)<br>                                .map(v -&gt; !v.isEmpty())<br>                                .orElse(<span class="hljs-literal">false</span>)<br>                );<br></code></pre></td></tr></table></figure>]]></content>
     
     
+    <categories>
+      
+      <category>Java代码块</category>
+      
+    </categories>
     
-    <tags>
-      
-      <tag>Java代码块</tag>
-      
-    </tags>
     
   </entry>
   
@@ -82,12 +94,6 @@
     </categories>
     
     
-    <tags>
-      
-      <tag>sql语句</tag>
-      
-    </tags>
-    
   </entry>
   
   
@@ -107,12 +113,6 @@
     </categories>
     
     
-    <tags>
-      
-      <tag>知识</tag>
-      
-    </tags>
-    
   </entry>
   
   
@@ -127,7 +127,7 @@
     
     <categories>
       
-      <category>软件</category>
+      <category>工具技巧</category>
       
     </categories>
     
@@ -157,9 +157,22 @@
     </categories>
     
     
+  </entry>
+  
+  
+  
+  <entry>
+    <title>毕业典礼</title>
+    <link href="/2024/06/25/%E6%AF%95%E4%B8%9A%E5%85%B8%E7%A4%BC/"/>
+    <url>/2024/06/25/%E6%AF%95%E4%B8%9A%E5%85%B8%E7%A4%BC/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/./../images/%E6%AF%95%E4%B8%9A-1727426873491-1.jpg" alt="毕业"></p>]]></content>
+    
+    
+    
     <tags>
       
-      <tag>Oracle</tag>
+      <tag>生活</tag>
       
     </tags>
     
