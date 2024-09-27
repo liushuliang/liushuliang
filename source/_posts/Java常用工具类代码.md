@@ -1,7 +1,7 @@
 ---
 title: Java常用工具类代码
 date: 2024-07-23 17:20:49
-tags: Java代码块
+categories: Java代码块
 ---
 
 ## 常用方法

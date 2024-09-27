@@ -1,7 +1,7 @@
 ---
 title: IDEA远程DEBUG调试
 date: 2024-07-26 09:40:03
-tags:
+categories: 工具技巧
 ---
 ## 在IDEA中配置
 ![](../images/idea中debug配置.png)

@@ -1,7 +1,6 @@
 ---
 title: sql优化
 date: 2024-07-12 14:51:22
-tags: sql语句
 categories: 数据库
 ---
 

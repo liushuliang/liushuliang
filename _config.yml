@@ -1,11 +1,11 @@
 # Site
 title: 建安百科大全
 subtitle: ''
-description: ''
+description: '记录生活和学习'
 keywords:
 author: 刘公子
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

@@ -1,7 +1,7 @@
+---
 title: Windows命令：type
 author: 刘公子
-tags: []
-categories: []
+categories: 工具技巧
 date: 2024-09-26 16:32:00
 ---
 ## 语法格式

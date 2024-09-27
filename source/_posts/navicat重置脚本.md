@@ -2,7 +2,7 @@
 title: navicat重置脚本
 date: 2024-07-10 16:35:49
 tags: script
-categories: 软件
+categories: 工具技巧
 ---
 
 ```sh
