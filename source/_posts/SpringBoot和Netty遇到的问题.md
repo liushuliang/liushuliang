@@ -1,7 +1,7 @@
 ---
 title: SpringBoot和Netty遇到的问题
 date: 2024-10-12 15:28:46
-tags: 开发问题 
+categories: 开发问题 
 ---
 > 在工作中，使用netty来开发遇到了两个问题记录一下
 
