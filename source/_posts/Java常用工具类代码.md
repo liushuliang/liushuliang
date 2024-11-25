@@ -45,3 +45,8 @@ List<AllErgenInfoResp> gms = wsAdpterService.getPatientGmInfo(hospitalNumber);
                 );
 ```
 
+### equal比较
+
+使用`("gcx_blood").equals(param.getObsvCode())`而不是`param.getObsvCode().equals()`
+
+> 这样写可以避免空指针异常，如果`param.getObsvCode()`返回`null`。调用`equal()`会抛异常，而使用`("gcx_blood").equals(null)` 不会抛出异常，而是直接返回 `false`。
