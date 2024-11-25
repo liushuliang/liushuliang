@@ -179,3 +179,7 @@ html,
 body {
     cursor: url(./1.ico), auto;
 }
+
+a {
+    cursor: url(./2.ico), auto;
+}

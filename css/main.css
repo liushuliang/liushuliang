@@ -14,7 +14,7 @@ h6:hover > .anchorjs-link {
   height: 100%;
   position: relative;
   overflow: hidden;
-  cursor: default;
+  cursor: url("./1.ico"), auto;
 }
 .banner .mask {
   position: absolute;
@@ -71,7 +71,7 @@ h6:hover > .anchorjs-link {
   color: #bababa;
 }
 .copy-btn {
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
   user-select: none;
   -webkit-appearance: none;
   outline: none;
@@ -382,7 +382,7 @@ sup > a::before,
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
 }
 .navbar .animated-icon span {
   display: block;
@@ -551,7 +551,7 @@ sup > a::before,
   top: -1rem;
   left: 0;
   color: #757575;
-  cursor: text;
+  cursor: url("./1.ico"), auto;
   transition: color 0.2s ease-out;
 }
 .modal-open[style] {
@@ -613,7 +613,7 @@ sup > a::before,
   background-color: var(--link-hover-bg-color);
 }
 .qr-trigger {
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
   position: relative;
 }
 .qr-trigger:hover .qr-img {
@@ -635,7 +635,7 @@ sup > a::before,
   width: 100%;
   height: 6rem;
   text-align: center;
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
   bottom: 0;
 }
 .scroll-down-bar i.iconfont {
@@ -784,7 +784,7 @@ body {
 body a {
   color: var(--text-color);
   text-decoration: none;
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 body a:hover {
@@ -1481,7 +1481,7 @@ figure.highlight td.code > pre {
   color: var(--sec-text-color);
 }
 .markdown-body details {
-  cursor: pointer;
+  cursor: url("./2.ico"), auto;
 }
 .markdown-body details summary {
   outline: none;
