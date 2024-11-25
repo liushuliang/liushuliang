@@ -61,7 +61,7 @@
     position: relative;
     margin-top: 3.5em;
     font-weight: normal;
-    cursor: text;
+    cursor: url(./1.ico), auto;
     color: #6c549c;
 }
 
@@ -173,4 +173,9 @@ h6 {
 
 .markdown-body pre {
     --select-text-bg-color: rgba(223, 197, 223) !important;
+}
+
+html,
+body {
+    cursor: url(./1.ico), auto;
 }
