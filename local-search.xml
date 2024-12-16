@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>摩尔投票</title>
+    <link href="/2024/12/16/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/"/>
+    <url>/2024/12/16/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/</url>
+    
+    <content type="html"><![CDATA[<p>摩尔投票一般用于找绝对众数。在数列p中出现次数严格大于p&#x2F;2的数就是绝对众数。</p><blockquote><p>可以使用map统计每个数字出现次数</p><p>使用排序，取中间数字</p></blockquote><p>摩尔投票的思想：</p><p>每次从序列里选择两个不相同的数字删除掉（或称为“抵消”），最后剩下一个数字或几个相同的数字，就是出现次数大于总数一半的那个。（<strong>在一定存在的条件下</strong>）</p><p>具体实现可以参考：<a href="https://www.cnblogs.com/RioTian/p/12486239.html">https://www.cnblogs.com/RioTian/p/12486239.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法思想</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>oracle权限问题</title>
+    <link href="/2024/12/12/oracle%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/12/12/oracle%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>在修改oracle数据库表时报错：</p><p>​<code>ORA-01031: insufficient privileges(权限不足)</code></p><p>解决方法：</p><p>利用SYS执行<code>GRANT CREATE ANY TABLE TO YIXUAN</code></p><p><img src="/./../images/image-20241212143230000.png" alt="image-20241212143230000"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>异或运算——找单独的数</title>
     <link href="/2024/11/13/%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E2%80%94%E2%80%94%E6%89%BE%E5%8D%95%E7%8B%AC%E7%9A%84%E6%95%B0/"/>
     <url>/2024/11/13/%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E2%80%94%E2%80%94%E6%89%BE%E5%8D%95%E7%8B%AC%E7%9A%84%E6%95%B0/</url>
@@ -238,11 +276,11 @@
   
   
   <entry>
-    <title>Oracle使用问题</title>
+    <title>Oracle连接问题</title>
     <link href="/2024/07/05/Oracle%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/"/>
     <url>/2024/07/05/Oracle%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<h1 id="Oracle——记一次使用问题"><a href="#Oracle——记一次使用问题" class="headerlink" title="Oracle——记一次使用问题"></a>Oracle——记一次使用问题</h1><p>Oracle用户创建之后需要赋予其连接数据库的能力：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CREATE</span> SESSION <span class="hljs-keyword">TO</span> <span class="hljs-operator">&lt;</span>username<span class="hljs-operator">&gt;</span>;<br></code></pre></td></tr></table></figure><p>在Oracle数据库中，一个模式（Schema）通常对应一个数据库用户。具体来说，模式就是一个数据库用户的集合名空间，包含该用户拥有的所有数据库对象，如表、视图、索引、存储过程等。</p><p>所以在Spring等配置数据库是需要使用特定用户连接特定的Schema。</p>]]></content>
+    <content type="html"><![CDATA[<p>Oracle用户创建之后需要赋予其连接数据库的能力：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">CREATE</span> SESSION <span class="hljs-keyword">TO</span> <span class="hljs-operator">&lt;</span>username<span class="hljs-operator">&gt;</span>;<br></code></pre></td></tr></table></figure><p>在Oracle数据库中，一个模式（Schema）通常对应一个数据库用户。具体来说，模式就是一个数据库用户的集合名空间，包含该用户拥有的所有数据库对象，如表、视图、索引、存储过程等。</p><p>所以在Spring等配置数据库是需要使用特定用户连接特定的Schema。</p>]]></content>
     
     
     <categories>
