@@ -1,10 +1,8 @@
 ---
-title: Oracle使用问题
+title: Oracle连接问题
 date: 2024-07-05 09:54:20
 categories: 数据库
 ---
-# Oracle——记一次使用问题
-
 Oracle用户创建之后需要赋予其连接数据库的能力：
 
 ```sql
