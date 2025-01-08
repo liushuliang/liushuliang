@@ -34,7 +34,7 @@ categories: Java代码块
 
 ### `Optional.ofNullable().map().orElse()`
 
-v指代是gms这个列表
+`v`指代是`gms`这个列表
 
 ```java 
 List<AllErgenInfoResp> gms = wsAdpterService.getPatientGmInfo(hospitalNumber);
@@ -50,3 +50,43 @@ List<AllErgenInfoResp> gms = wsAdpterService.getPatientGmInfo(hospitalNumber);
 使用`("gcx_blood").equals(param.getObsvCode())`而不是`param.getObsvCode().equals()`
 
 > 这样写可以避免空指针异常，如果`param.getObsvCode()`返回`null`。调用`equal()`会抛异常，而使用`("gcx_blood").equals(null)` 不会抛出异常，而是直接返回 `false`。
+
+## `LocalDateTime`用法
+
+### 格式化输出
+
+```java
+package cn.hutool.core.date;
+	/**
+	 * 格式化日期时间为yyyy-MM-dd HH:mm:ss格式
+	 *
+	 * @param time {@link LocalDateTime}
+	 * @return 格式化后的字符串
+	 * @since 5.3.11
+	 */
+	public static String formatNormal(LocalDateTime time) {
+		return format(time, DatePattern.NORM_DATETIME_FORMATTER);
+	}
+```
+
+## 把map中的值转为list
+
+```java
+		Map<String, List<String>> patientMap = new HashMap<>();
+        patientMap.put("patient1", Arrays.asList("a", "b", "c"));
+        patientMap.put("patient2", Arrays.asList("d", "e"));
+        patientMap.put("patient3", Arrays.asList("f"));
+
+        // 将所有 values 合并为一个 List
+        List<String> combinedList = patientMap.values().stream()
+                .flatMap(List::stream) // 将每个 List 展开为单个元素的流
+                .collect(Collectors.toList()); // 收集成一个 List
+```
+
+## 获取一天的开始和结束时间
+
+```java
+LocalDateTime startOfDay = LocalDateTime.now().with(LocalTime.MIDNIGHT).minusMinutes(10);
+ LocalDateTime endOfDay = LocalDateTime.now().with(LocalTime.MAX);
+```
+
